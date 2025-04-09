@@ -11,7 +11,13 @@ cookie.addEventListener('click', function(event) {
       cookie.height = 115;
     }else {
       cookie.width = 200;
-      cookie.height = 128;
+      cookie.height = getRandomNumber();
     }
   }
 });
+
+function getRandomNumber() {
+  let min = 115, 
+    max = 130;
+    return Math.floor(Math.random() * (max - min) + min);
+}
