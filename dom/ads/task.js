@@ -1,8 +1,11 @@
 const rotator = document.querySelectorAll(".rotator");
 rotator.forEach((rotatorElement) => {
   const rotatorCase = rotatorElement.querySelectorAll(".rotator__case");
+  let intervalId;
 
   function rotate() {
+    clearInterval(intervalId);
+
     rotatorCase.forEach((rotatorCaseActive) => {
       rotatorCaseActive.classList.remove("rotator__case_active");
     });
@@ -11,6 +14,13 @@ rotator.forEach((rotatorElement) => {
     const rotatorCaseNew = rotatorCase[randomIndexRotatorCase];
     rotatorCaseNew.classList.add("rotator__case_active");
     rotatorCaseNew.style.color = rotatorCaseNew.dataset.color;
+
+    let newSpeed = 1000;
+    if (rotatorCaseNew.dataset.speed) {
+      newSpeed = parseInt(rotatorCaseNew.dataset.speed, 10) || 1000;
+    }
+
+    intervalId = setInterval(rotate, newSpeed);
   }
 
   let initialSpeed = 1000;
@@ -19,5 +29,5 @@ rotator.forEach((rotatorElement) => {
     initialSpeed = parseInt(speedActiveElement.dataset.speed, 10) || 1000;
   }
 
-  setInterval(rotate, initialSpeed);
+  intervalId = setInterval(rotate, initialSpeed);
 });
