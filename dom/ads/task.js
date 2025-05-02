@@ -19,10 +19,10 @@ rotator.forEach((rotatorElement) => {
     if (rotatorCaseNew.dataset.speed) {
       newSpeed = parseInt(rotatorCaseNew.dataset.speed, 10) || 1000;
     }
-
+    //Запуск с новой скоростью
     intervalId = setInterval(rotate, newSpeed);
   }
-
+//Первый запуск
   let initialSpeed = 1000;
   const speedActiveElement = rotatorElement.querySelector(".rotator__case_active");
   if(speedActiveElement) {
