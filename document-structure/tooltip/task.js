@@ -21,7 +21,7 @@ hasTooltip.forEach((selectedHasTooltip) => {
     //позиционирование подсказки
     const { bottom, left, width } = selectedHasTooltip.getBoundingClientRect();
     tooltip.style.top = `${bottom + 5}px`;
-    tooltip.style.left = `${left + width / 2 - tooltip.offsetWidth / 2}px`;
+    tooltip.style.left = `${left}px`;
 
     activeTooltip = tooltip.classList.contains("tooltip_active") ? tooltip : null; //обновляем активный, если его нет то null
   });
