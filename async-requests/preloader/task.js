@@ -5,7 +5,6 @@ const itemsContainer = document.getElementById("items");
 function createCurrencyItem(charCode, value) {
   const item = document.createElement("div");
   item.classList.add("item");
-
   item.innerHTML = `
     <div class="item__code">
       ${charCode}
@@ -22,11 +21,8 @@ function createCurrencyItem(charCode, value) {
 }
 
 function loadCurrencies() {
-  loader.classList.add("loader_active");
-
   xhr.addEventListener("load", () => {
     if(xhr.readyState === xhr.DONE) {
-      // console.log(xhr.responseText);
       loader.classList.remove("loader_active");
     }
 
@@ -34,7 +30,6 @@ function loadCurrencies() {
       try {
         const data = JSON.parse(xhr.responseText);
         const valuteData = data.response.Valute;
-
         itemsContainer.innerHTML = "";
 
         for (const currencyCode in valuteData) {
