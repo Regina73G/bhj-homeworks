@@ -8,3 +8,9 @@ textarea {
   border: 1px solid #e2e2e2;
   box-sizing: border-box;
 }
+
+#clear {
+  width: 200px;
+  display: block;
+  margin: 0 auto;
+}
